@@ -30,8 +30,8 @@ $diceRules->loadXmlRules();
 $diceRules->loadDefaultRules();
 
 $pdo = $dice->create("PDO");
-
 $userRepo = $dice->create("UserRepository");
+
 $id = 2837;
 $user = $userRepo->getByMemberId($id);
 var_dump($user);
