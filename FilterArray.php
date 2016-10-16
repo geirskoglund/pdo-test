@@ -6,6 +6,6 @@ class FilterArray extends ArrayObject
         if ($val instanceof IFilter) 
             return parent::offsetSet($key, $val);
         
-        throw new InvalidArgumentException('Value must be a Filter');
+        throw new InvalidArgumentException('Value must implement IFilter');
     }
 }

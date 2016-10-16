@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<dice xmlns="https://r.je/dice/2.0">
+
+    <rule>
+        <name>Dice\Dice</name>
+        <shared>true</shared>
+    </rule>
+    <rule>
+        <name>AppConfig</name>
+        <shared>true</shared>
+        <constructParams>
+            <param>app-settings.ini</param>
+        </constructParams>
+    </rule>
+    
+</dice>

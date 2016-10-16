@@ -2,7 +2,7 @@
 /**
 * A helper class for common pdo tasks.
 */
-class PdoHelper
+class PdoHelper implements IPdoHelper
 {
     private $pdo;
     private $sql;
@@ -10,12 +10,10 @@ class PdoHelper
     
     /**
     * @param PDO $pdo A PDO instance
-    * @param $sql An sql prepared statement string, with placeholders (question marks) 
     */ 
-    public function __construct(PDO $pdo, $sql)
+    public function __construct(PDO $pdo)
 	{
 		$this->pdo = $pdo;
-        $this->sql = $sql;
 	}
     
     /**
@@ -105,21 +103,4 @@ class PdoHelper
         return $stmt; 
     }    
     
-    public static function CreatePdoInstance(Array $settings)
-    {
-        $host = $settings["host"];
-        $db   = $settings["database"];
-        $user = $settings["user"];
-        $password =  $settings["password"];
-        $charset = "utf8";
-
-        $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-
-        $opt = [
-            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-            PDO::ATTR_EMULATE_PREPARES   => false,
-        ];
-        return new PDO($dsn, $user, $password, $opt);
-    }
 }

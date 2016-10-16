@@ -1,5 +1,5 @@
 <?php
-class UserRepository extends BaseRepository
+class UserRepository extends BaseRepository implements IUserRepository
 {
     protected function entityName(){
         return "User";
